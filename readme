@@ -3,17 +3,19 @@ This project allows you to using lift-mongo-record models with play framework
 
 adding module to play project:
 
-1. git clone https://github.com/reflow/playonsails
-2. add play dependencies:
-- playonsails -> playonsails
-    
+1. Create a provided folder into your application and mv to it
+2. git clone git@github.com:D-Roch/playonsails.git
+3. add play dependencies:
+    - playonsails -> playonsails 0.1
+
 repositories: 
     - LocalModules: 
-        type:       local 
-        artifact:   "/path/to/module/playonsails"  
+        type:       local
+        artifact:     "${application.path}/provided/[module]"
+        descriptor:   "${application.path}/provided/[module]/conf/dependencies.yml"
         contains: 
-            - playonsails-> *
-3. setting up configuration parameters into  /playproject/application.conf:
+            - playonsails -> playonsails 0.1
+4. setting up configuration parameters into  /playproject/application.conf:
 mongo.host (localhost by default)
 mongo.port (27017 by default)
 mongo.timeout (in seconds, 10 by default)
